@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<BlueAcorn_CustomShippingMethod>
+			<version>0.1.0</version>
+		</BlueAcorn_CustomShippingMethod>
+	</modules>
+	<global>
+		<models>
+			<blueacorn_customshippingmethod>
+				<class>BlueAcorn_CustomShippingMethod_Model</class>
+			</blueacorn_customshippingmethod>
+			<blueacorn_customshippingmethod_resource>
+				<class>BlueAcorn_CustomShippingMethod_Model_Resource</class>
+			</blueacorn_customshippingmethod_resource>
+		</models>
+		<blocks>
+			<blueacorn_customshippingmethod>
+				<class>BlueAcorn_CustomShippingMethod_Block</class>
+			</blueacorn_customshippingmethod>
+		</blocks>
+		<helpers>
+			<blueacorn_customshippingmethod>
+				<class>BlueAcorn_CustomShippingMethod_Helper</class>
+			</blueacorn_customshippingmethod>
+		</helpers>
+	</global>
+	<default>
+		<carriers>
+			<blueacorn_customshippingmethod>
+				<active>1</active>
+				<model>blueacorn_customshippingmethod/carrier</model>
+				<title>My Custom Carrier</title>
+				<sort_order>10</sort_order>
+				<sallowspecific>0</sallowspecific>
+			</blueacorn_customshippingmethod>
+		</carriers>
+	</default>
+</config>
