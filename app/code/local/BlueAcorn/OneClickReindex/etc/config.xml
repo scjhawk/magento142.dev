@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <BlueAcorn_OneClickReindex>
+            <version>0.1.0</version>
+        </BlueAcorn_OneClickReindex>
+    </modules>
+    
+    <global>
+        <models>
+            <blueacorn_oneclickreindex>
+                <class>BlueAcorn_OneClickReindex_Model</class>
+                <resourceModel>blueacorn_oneclickreindex_resource</resourceModel>
+            </blueacorn_oneclickreindex>
+            <blueacorn_oneclickreindex_resource>
+                <class>BlueAcorn_OneClickReindex_Model_Resource</class>
+            </blueacorn_oneclickreindex_resource>
+        </models>
+        <blocks>
+            <blueacorn_oneclickreindex>
+                <class>BlueAcorn_OneClickReindex_Block</class>
+            </blueacorn_oneclickreindex>
+        </blocks>
+        <helpers>
+            <blueacorn_oneclickreindex>
+                <class>BlueAcorn_OneClickReindex_Helper</class>
+            </blueacorn_oneclickreindex>
+        </helpers>
+        <events>
+            <adminhtml_widget_container_html_before>
+                <observers>
+                    <blueacorn_oneclickreindex>
+                        <type>singleton</type>
+                        <class>blueacorn_oneclickreindex/observer</class>
+                        <method>addReindexAllButton</method> 
+                    </blueacorn_oneclickreindex>
+                </observers>
+            </adminhtml_widget_container_html_before>       
+        </events>
+    </global>
+    
+    <adminhtml>
+        <layout>
+            <updates>
+                <blueacorn_oneclickreindex>
+                    <file>blueacorn/oneclickreindex.xml</file>
+                </blueacorn_oneclickreindex>
+            </updates>
+        </layout>
+    </adminhtml>
+    
+    <frontend>
+        <routers>
+            <blueacorn_oneclickreindex>
+                <use>standard</use>
+                <args>
+                    <module>BlueAcorn_OneClickReindex</module>
+                    <frontName>ocreindex</frontName>
+                </args>
+            </blueacorn_oneclickreindex>
+        </routers>
+    </frontend>
+
+    <!--<crontab>-->
+        <!--<jobs>-->
+            <!--<blueacorn_oneclickreindex>-->
+                <!--<schedule>-->
+                    <!--<cron_expr>0 0 * * *</cron_expr>-->
+                <!--</schedule>-->
+                <!--<run>-->
+                    <!--<model>blueacorn_oneclickreindex/observer::cronReindex</model>-->
+                <!--</run>-->
+            <!--</blueacorn_oneclickreindex>-->
+        <!--</jobs>-->
+    <!--</crontab>-->
+    
+</config>

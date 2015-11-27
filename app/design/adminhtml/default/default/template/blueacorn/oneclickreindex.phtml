@@ -1,0 +1,32 @@
+<script>
+
+function reindexall() {
+
+    var proceed = confirm("Are you sure you want to reindex all? This process may take some time.");
+        
+        if (proceed)
+        {
+            var url = "<?php echo Mage::getURL("ocreindex/reindex/") ?>";
+
+            new Ajax.Request(url,
+                {
+                    method: 'get',
+                    onSuccess: function (transport) {
+                        var response = JSON.parse(transport.responseText) || "no response text";
+
+                        for (var s in response) {
+                            console.log(response[s]);
+                        }
+                        if (response['exception'])
+                            alert(response['exception']);
+                        else
+                            alert(response['reindex'] + "\r\n" + response['cache']);
+                    },
+                    onFailure: function () {
+                        alert('There was an error while attempting to reindex.');
+                    }
+                });
+        }
+
+}
+</script>
